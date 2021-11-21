@@ -118,7 +118,7 @@ choicesEl.forEach((question) => {
         }
       }
 
-    // once answered the question will move to the next question after 1 second  
+    // once the question is answered, it will move to the next question after half a second  
       setTimeout(function () {
         resetQuestion();
       }, 500);

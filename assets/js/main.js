@@ -80,3 +80,15 @@ var questions = [
     quizPage.setAttribute("class", "active");
     showQuestion(questions);
   };
+
+
+  var showQuestion = function (q) {
+    var divTitle = document.querySelector(".title");
+    divTitle.textContent = q[currentQuestion].title;
+    choicesEl.forEach((element, index) => {
+      element.textContent = q[currentQuestion].choices[index];
+    });
+  };
+
+  
+  

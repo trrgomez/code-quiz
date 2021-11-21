@@ -18,7 +18,7 @@ html {
     --fs-h1: 5rem;
     --fs-h2: 3.5rem;
     --fs-h3: 2.6rem;
-    --fs-body: 2rem;
+    --fs-body: 2.25rem;
     --ff-body: 'Quicksand', sans-serif;
     --light-bg: #e8e0f5;
     --light-color: #fff;
@@ -65,7 +65,7 @@ main {
 }
 
 section {
-    padding: 3.5rem;
+    width: 90%;
   }
 
   /* Utilities */
@@ -78,7 +78,7 @@ section {
     color: var(--light-color);
     border: none;
     font-size: var(--fs-body);
-    padding: 1.5rem;
+    padding: 2.25rem;
     border-radius: 1rem;
     cursor: pointer;
     width: 100%;
@@ -110,10 +110,11 @@ section {
   /* quiz section end */
 
   /* highscore form section start */
+
   form input {
     border: none;
     font-size: var(--fs-body);
-    padding: 1.5rem;
+    padding: 1.5rem 10rem;
     border-radius: 1rem;
     cursor: pointer;
     width: 100%;
@@ -141,3 +142,20 @@ section {
   }
 
   /* highscore list section end */
+
+  @media only screen and (min-width: 600px) {
+    section {
+        max-width: 1080px;
+     }
+
+  }
+  @media only screen and (min-width: 900px) {
+    .btn-container {
+        display: flex;
+    }
+
+    .btn-container .btn {
+        margin: 1rem;
+    }
+
+  }

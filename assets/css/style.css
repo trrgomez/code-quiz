@@ -106,5 +106,21 @@ section {
   ul .title {
     margin-bottom: 2rem;
   }
-  
+
   /* quiz section end */
+
+  /* highscore form section start */
+  form input {
+    border: none;
+    font-size: var(--fs-body);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    width: 100%;
+    margin: 1rem 0;
+  }
+
+  .score {
+      margin: 1rem 0;
+  }
+  /* highscore form section end */

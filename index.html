@@ -28,7 +28,7 @@
         <!-- Start Page Section End -->
 
         <!-- Quiz Page Section Start -->
-        <section class="quiz-page active" id="quiz-page">
+        <section class="quiz-page hidden" id="quiz-page">
             <div class="time-container">
                 <h3 class="timer">Timer: <span id="currentTime">0</span></h3>
             </div>
@@ -50,6 +50,21 @@
             </div>
         </section>
         <!-- Quiz Page Section End -->
+
+        <!-- Highscore Form Section Start -->
+        <section class="form-page active" id="form-page">
+            <form action="">
+                <div class="score-container">
+                    <h3 class="score">Your Score: <span id="score"></span></h3>
+                </div>
+                <label for="initials">Please Enter Your Initials: </label> <br>
+                <input type="text" name="initials" id="initials"> <br>
+                <button class="btn submit-btn" type="submit">Submit</button>
+                <br>
+            </form>
+        </section>
+
+        <!-- Highscore Form Section End -->
     </main>
     <script src="./assets/js/main.js"></script>
 </body>

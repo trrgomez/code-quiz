@@ -18,8 +18,8 @@ var backBtn = document.querySelector('.back-btn')
 
 // declared variables
 var currentQuestion = 0;
-var secondsLeft = 75;
-var holdInterval = 0;
+var secondsLeft = 80;
+var startTimeInterval = true;
 var penalty = 10;
 var highScores = [];
 
@@ -64,13 +64,13 @@ var questions = [{
 //   will begin quiz when start button is clicked
 startBtn.addEventListener("click", function () {
     //   decreases timer once quiz starts
-    if (holdInterval === 0) {
-        holdInterval = setInterval(function () {
+    if (startTimeInterval) {
+        startTimeInterval = setInterval(function () {
             secondsLeft--;
             currentTime.textContent = secondsLeft;
             // if time reaches 0 then we clear interval and quiz will end
             if (secondsLeft <= 0) {
-                clearInterval(holdInterval);
+                clearInterval(startTimeInterval);
                 currentTime.textContent = "Your Time is Up!";
             }
         }, 1000);
@@ -149,7 +149,7 @@ choicesEl.forEach((question) => {
     // the seconds that are left will equal to your score
     if (secondsLeft >= 0) {
       var timeRemaining = secondsLeft;
-      clearInterval(holdInterval);
+      clearInterval(startTimeInterval);
       scoreEl.textContent = timeRemaining;
     }
 

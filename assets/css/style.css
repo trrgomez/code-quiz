@@ -16,7 +16,7 @@ html {
     --fw-reg: 400;
     --fw-bold: 700;
     --fs-h1: 5rem;
-    --fs-h2: 4rem;
+    --fs-h2: 3.5rem;
     --fs-h3: 2.6rem;
     --fs-body: 2rem;
     --ff-body: 'Quicksand', sans-serif;
@@ -31,7 +31,6 @@ html {
 body {
     font-family: var(--ff-body);
     font-size: var(--fs-body);
-    overflow: hidden;
     background: var(--light-bg);
     width: 100vw;
     height: 100vh;
@@ -58,6 +57,7 @@ p {
 
 main {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100vw;
@@ -65,7 +65,7 @@ main {
 }
 
 section {
-    padding: 4rem;
+    padding: 3.5rem;
   }
 
   /* Utilities */
@@ -89,5 +89,22 @@ section {
     background: var(--secondary-color);
   }
 
+  .hidden {
+      display: none;
+  }
+
+  .active {
+      display: block;
+  }
+
   /* quiz section start */
+
+  .time-container {
+      padding: 3rem 0rem;
+  }
+
+  ul .title {
+    margin-bottom: 2rem;
+  }
+  
   /* quiz section end */

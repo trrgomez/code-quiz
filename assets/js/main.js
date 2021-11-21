@@ -96,3 +96,47 @@ var showQuestion = function (question) {
     });
 };
 
+
+// loops through every choice and creates an event listener
+choicesEl.forEach((question) => {
+    question.addEventListener("click", function (event) {
+      var targetEl = event.target;
+    //   targets the button containing the class choice and gets the data-id attribute
+      if (targetEl.matches(".choice")) {
+        var dataId = targetEl.getAttribute("data-id");
+        dataId = parseInt(dataId);
+        // compares the data-id of the user's choice with the answer from the questions array
+        if (dataId == questions[currentQuestion].answer) {
+        // displays correct if the user's choice is correct
+          correctAnswer.setAttribute("class", "active");
+        } else {
+        // displays wrong if the user's choice is wrong
+        // deducts 10 seconds when answer is wrong
+          secondsLeft = secondsLeft - penalty;
+          wrongAnswer.setAttribute("class", "active");
+        }
+      }
+
+    // once answered the question will move to the next question after 1 second  
+      setTimeout(function () {
+        resetQuestion();
+      }, 1000);
+    });
+  });
+
+//   function that resets the question
+  var resetQuestion = function () {
+    // hides the wrong and correct words from bottom of page
+    wrongAnswer.setAttribute("class", "hidden");
+    correctAnswer.setAttribute("class", "hidden");
+    // increments through questions
+    currentQuestion++;
+
+    if (currentQuestion >= questions.length) {
+    // once you reach the end of quiz it will direct you to save your score
+      saveHighScore();
+    } else {
+        // else continue to finish the quiz
+      showQuestion(questions);
+    }
+  };

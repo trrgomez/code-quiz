@@ -14,6 +14,7 @@ var highscoreBtn = document.querySelector(".highscore-btn");
 var backBtn = document.querySelector(".back-btn");
 var highscorePage = document.querySelector("#highscore-page");
 var highscoreList = document.querySelector("#highscoreList");
+var backBtn = document.querySelector('.back-btn')
 
 // declared variables
 var currentQuestion = 0;
@@ -140,3 +141,84 @@ choicesEl.forEach((question) => {
       showQuestion(questions);
     }
   };
+
+//   function that saves the score to local storage
+  function saveHighScore() {
+    highscoreForm.setAttribute("class", "active");
+    quizPage.setAttribute("class", "hidden");
+    // the seconds that are left will equal to your score
+    if (secondsLeft >= 0) {
+      var timeRemaining = secondsLeft;
+      clearInterval(holdInterval);
+      scoreEl.textContent = timeRemaining;
+    }
+
+    // grabbing the value from input
+    var initials = input.value;
+
+    // validating if input has a value
+    if (!initials) {
+      console.log("You must enter your initials.");
+    } else {
+        // creating an object to save the score and initials
+      let newScore = {
+        initials: initials,
+        highScore: timeRemaining,
+      };
+    //   pushing the object into the array
+      highScores.push(newScore);
+    //   saving the array into local storage
+      localStorage.setItem("scores", JSON.stringify(highScores));
+    }
+
+    // function that loads the saved scores
+    loadScores()
+  }
+  
+//   function that allows us to view scores
+  var viewScores = function(){
+    //   function that loads the saved scores
+    loadScores()
+    startPage.setAttribute("class", "hidden");
+    quizPage.setAttribute("class", "hidden");
+    highscoreForm.setAttribute("class", "hidden");
+    highscorePage.setAttribute("class", "active");
+
+    // creates the buttons for score list
+    for (var i = 0; i < highScores.length; i++) {
+      var createBtn = document.createElement("button");
+      createBtn.className = "btn score-btn";
+      createBtn.innerHTML = `<span class="initials">Initials:${highScores[i].initials}</span>
+      <span class="scores">Score:${highScores[i].highScore}</span>`;
+      highscoreList.appendChild(createBtn);
+    }
+  }
+  
+
+  var loadScores = function(){
+      //   grabs the scores from local storage
+    var savedHighscore = JSON.parse(localStorage.getItem("scores"));
+
+    // validates if there are any saved scores in local storage
+    if (!savedHighscore) {
+      highScores = [];
+    } else {
+      highScores = JSON.parse(localStorage.getItem("scores"));
+    }
+  }
+  
+// Event listeners for buttons
+  submitBtn.addEventListener("click", saveHighScore);
+  
+  highscoreBtn.addEventListener("click", viewScores);
+
+  backBtn.addEventListener('click', function(){
+    // shows the start page
+    startPage.setAttribute("class", "active");
+    // hides quiz page
+    quizPage.setAttribute("class", "hidden");
+    // hides highscore form page
+    highscoreForm.setAttribute("class", "hidden");
+    // hides highscore list page
+    highscorePage.setAttribute("class", "hidden");
+  })

@@ -135,7 +135,7 @@ choicesEl.forEach((question) => {
 
     if (currentQuestion >= questions.length) {
     // once you reach the end of quiz it will direct you to save your score
-      saveHighScore();
+      saveScore();
     } else {
         // else continue to finish the quiz
       showQuestion(questions);
@@ -143,7 +143,7 @@ choicesEl.forEach((question) => {
   };
 
 //   function that saves the score to local storage
-  function saveHighScore() {
+  function saveScore() {
     highscoreForm.setAttribute("class", "active");
     quizPage.setAttribute("class", "hidden");
     // the seconds that are left will equal to your score
@@ -208,7 +208,7 @@ choicesEl.forEach((question) => {
   }
   
 // Event listeners for buttons
-  submitBtn.addEventListener("click", saveHighScore);
+  submitBtn.addEventListener("click", saveScore);
   
   highscoreBtn.addEventListener("click", viewScores);
 

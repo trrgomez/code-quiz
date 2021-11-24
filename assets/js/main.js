@@ -30,7 +30,7 @@ var questions = [{
         answer: 1,
     },
     {
-        title: "Where is the correct place to insert a JavaScript?",
+        title: "Where in the index.html would you include javascript?",
         choices: ["Both the <head> section and the <body> section are correct", "The <body> section", "The <head> section", "The <main> section"],
         answer: 1,
     },
@@ -40,25 +40,16 @@ var questions = [{
         answer: 3,
     },
     {
-        title: "What is the correct syntax for referring to an external script called xxx.js?",
+        title: "What is the correct syntax for linking a script file to index.html",
         choices: ["<script src='xxx.js'>", "<script href='xxx.js'>", "<script name='xxx.js'>", "<script ref='xxx.js'>"],
         answer: 0,
     },
     {
-        title: "What does CSS stand for",
-        choices: ["Coding Style Sheet", "Cascading Style Sheet", "CSS", "HTML"],
+        title: "How would you write 'Hello World' in an alert box?",
+        choices: ["alertFunc('Hello World')", "alert('Hello World')", "msg('Hello World')", "func('Hello World')"],
         answer: 1,
-    },
-    {
-        title: "How do you write 'Hello World' in an alert box?",
-        choices: ["alertBox('Hello World')", "alert('Hello World')", "msg('Hello World')", "msgBox('Hello World')"],
-        answer: 1,
-    },
-    {
-        title: "How do you create a function in JavaScript?",
-        choices: ["function:myFunction()", "function myFunction()", "function = myFunction()", "function > myFunction()"],
-        answer: 1,
-    },
+    }
+
 ];
 
 //   will begin quiz when start button is clicked
